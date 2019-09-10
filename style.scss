@@ -1,0 +1,76 @@
+body {
+    margin: 0;
+    --dot-dim: 3px;
+    --dot-color: #3f3f3f;
+    --line-color: rgba(63, 63, 63, 0.3);
+    --dot-gap: 50px;
+}
+
+#mesh_material_wrap {
+    background-color: #333;
+    overflow: hidden;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+
+    #mesh_material {
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        position: absolute;
+        z-index: 2;
+
+        .dots {
+            position: absolute;
+            background-color: var(--dot-color);
+            width: var(--dot-dim);
+            height: var(--dot-dim);
+            transition: all 0.3s linear;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+
+            &:before {
+                content: '';
+                position: absolute;
+                width: var(--dot-gap);
+                background-color: var(--line-color);
+                height: 1px;
+                top: 1px;
+                left: 0px;
+            }
+
+            &:after {
+                content: '';
+                position: absolute;
+                height: var(--dot-gap);
+                background-color: var(--line-color);
+                width: 1px;
+                left: 1px;
+                top: 0px;
+            }
+
+            &:hover {
+                background-color: white;
+                transform: translate(-50%, -50%) scale(2);
+            }
+        }
+    }
+
+    #mesh_material_back {
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        z-index: 2;
+        transform: translate(25px, 25px);
+
+        .dots {
+            position: absolute;
+            background-color: var(--dot-color);
+            width: var(--dot-dim);
+            height: var(--dot-dim);
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+        }
+    }
+
+}
